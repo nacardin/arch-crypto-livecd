@@ -5,10 +5,10 @@ set -e -u
 iso_name=archlinux-crypto-livecd
 iso_label="ARCH_$(date +%Y%m)"
 iso_version=$(date +%Y.%m.%d)
-install_dir=archlinux-crypto
+install_dir=archlinux_crypto
 work_dir=work
 out_dir=out
-gpg_key=5CF443C1183E15EA1A9F16558E188D55CBA8B810
+gpg_key=
 
 arch=$(uname -m)
 verbose=""

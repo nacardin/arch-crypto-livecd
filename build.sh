@@ -5,8 +5,20 @@ if [ $EUID != 0 ]; then
     exit $?
 fi
 
-rm -rf build
-mkdir build
-cp -R * build/
-chown root:root -R build
-./build/archiso.sh
+user=$(stat -c '%U' .)
+group=$(stat -c '%G' .)
+
+tmppath=/tmp/arch-crypto-livecd-build
+
+rm -rf ./dist
+rm -rf $tmppath
+mkdir $tmppath
+cp -R ./src/* $tmppath/
+mkdir ./dist
+
+cd $tmppath
+chown root:root -R *
+./build.sh
+cd -
+cp $tmppath/out/* ./dist/
+chown $user:$group -R ./dist
