@@ -103,6 +103,10 @@ make_customize_airootfs() {
 
     lynx -dump -nolist 'https://wiki.archlinux.org/index.php/Installation_Guide?action=render' >> ${work_dir}/x86_64/airootfs/root/install.txt
 
+    #download electron cash
+    curl -o ${work_dir}/x86_64/airootfs/usr/local/bin/Electron-Cash-4.0.9-x86_64.AppImage 'https://electroncash.org/downloads/4.0.9/win-linux/Electron-Cash-4.0.9-x86_64.AppImage'
+    chmod +x ${work_dir}/x86_64/airootfs/usr/local/bin/Electron-Cash-4.0.9-x86_64.AppImage
+
     mkarchiso ${verbose} -w "${work_dir}/x86_64" -C "${work_dir}/pacman.conf" -D "${install_dir}" -r '/root/customize_airootfs.sh' run
     rm ${work_dir}/x86_64/airootfs/root/customize_airootfs.sh
 }
