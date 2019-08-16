@@ -8,7 +8,7 @@ fi
 user=$(stat -c '%U' .)
 group=$(stat -c '%G' .)
 
-tmppath=/tmp/arch-crypto-livecd-build
+tmppath=/tmp/archlinux-live-crypto-build
 
 rm -rf ./dist
 rm -rf $tmppath
@@ -18,7 +18,7 @@ mkdir ./dist
 
 cd $tmppath
 chown root:root -R *
-./build.sh
+./build.sh -v
 cd -
 cp $tmppath/out/* ./dist/
 chown $user:$group -R ./dist

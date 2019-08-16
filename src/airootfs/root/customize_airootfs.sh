@@ -23,4 +23,4 @@ systemctl enable pacman-init.service choose-mirror.service
 systemctl set-default multi-user.target
 
 #custom scripts
-/root/custom_scripts/keepkey.sh
+# /root/custom_scripts/keepkey.sh
